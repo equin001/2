@@ -1,36 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-    font-family: 'Figtree';font-size: 20px;
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 </style>
+  <link href='https://fonts.googleapis.com/css?family=Figtree' rel='stylesheet'>
+  <style>
+  body {
+      font-family: 'Figtree';font-size: 20px;
+
+  </style>
 </head>
 <body>
 
 <h1>&euro;ddie$</h1>
-<h3>Doublespending</h3>
-<b>The punishment for doublespending is asset control lost and cost for doublespending. <b>
 
-<h3>Costs</h3>
-<b>You must pay all the affected &euro;$ 10K plus 25% interest before you relinquish your asset control and &euro;$ 10K plus 25% interest when it's changed back. <b>
+<button class="accordion">Doublespending</button>
+<div class="panel">
+  <p><b>The punishment for doublespending is asset control lost and cost for doublespending. <b></p>
+</div>
 
-<h3>Time</h3>
-<b>If you doublespend from your 1M &euro;ddie$, your punishment last for 1M minutes. If you created 2M &euro;ddie$ and spend it, your punishment last for 2M minutes etc. If you can't pay all the affected, your punishment last longer, until all debt is paid.<b>
+<button class="accordion">Costs</button>
+<div class="panel">
+  <p><b>You must pay all the affected &euro;$ 10K plus 25% interest before you relinquish your asset control and &euro;$ 10K plus 25% interest when it's changed back. <b></p>
+</div>
 
-<h3>Asset Control</h3>
-<b>You must change the manager, reserve, freeze and clawback of your assets to four public addresses randomly chosen by all the affected, this last for which doublespend applies to you. Community members can freeze or destroy &euro;ddie$ in your wallet if they choose too. If community members who control your &euro;ddie$ past away without leaving the privatekey to someone, your &euro;ddie$ control will be lost forever.<b>
+<button class="accordion">Time</button>
+<div class="panel">
+  <p><b>If you doublespend from your 1M &euro;ddie$, your punishment last for 1M minutes. If you created 2M &euro;ddie$ and spend it, your punishment last for 2M minutes etc. If you can't pay all the affected, your punishment last longer, until all debt is paid.<b>
+</p>
+</div>
 
-<h3>Fortnight</h3>
-<b>If you don't reimburse the affected within a fortnight, you loose &euro;ddie$ by the minute. After the fortnight, you must pay 1 &euro;ddie$ per minute per person plus 25% interest. <b>
-
-<h3>Pay per minute</h3>
-<b>If you don't pay everyone within the fortnight, you pay 1 &euro;ddie$ per minute per person plus 25% interest that you owe &euro;ddie$. If you refuse to take the steps above, the affected can opt-out of your &euro;ddie$, which will make it unusable.<b>
-
+<button class="accordion">Asset Control</button>
+<div class="panel">
+  <p><b>You must change the manager, reserve, freeze and clawback of your assets to four public addresses randomly chosen by all the affected, this last for which doublespend applies to you. Community members can freeze or destroy &euro;ddie$ in your wallet if they choose too. If community members who control your &euro;ddie$ past away without leaving the privatekey to someone, your &euro;ddie$ control will be lost forever.<b></p>
+</div>
 
 
+<button class="accordion">Fortnight</button>
+<div class="panel">
+  <p><b>If you don't reimburse the affected within a fortnight, you loose &euro;ddie$ by the minute. After the fortnight, you must pay 1 &euro;ddie$ per minute per person plus 25% interest. <b>
+</p>
+</div>
+
+<button class="accordion">Pay per minute</button>
+<div class="panel">
+  <p><b>If you don't pay everyone within the fortnight, you pay 1 &euro;ddie$ per minute per person plus 25% interest that you owe &euro;ddie$. If you refuse to take the steps above, the affected can opt-out of your &euro;ddie$, which will make it unusable.<b>
+
+
+</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
 
 </body>
 </html>
